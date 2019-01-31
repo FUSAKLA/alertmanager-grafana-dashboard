@@ -46,7 +46,7 @@
       {
         "datasource": "$datasource",
         "enable": true,
-        "expr": "changes(process_start_time_seconds{ instance=~\"$instance\"}[$__interval]) > 0",
+        "expr": "changes(process_start_time_seconds{ instance=~\"$instance\"}[2m]) > 0",
         "hide": false,
         "iconColor": "#bf1b00",
         "name": "Restarts",
