@@ -5,31 +5,31 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.4.2"
+      "version": "6.1.0"
     },
     {
       "type": "panel",
       "id": "graph",
       "name": "Graph",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "datasource",
       "id": "prometheus",
       "name": "Prometheus",
-      "version": "5.0.0"
+      "version": "1.0.0"
     },
     {
       "type": "panel",
       "id": "singlestat",
       "name": "Singlestat",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "panel",
       "id": "table",
       "name": "Table",
-      "version": "5.0.0"
+      "version": ""
     }
   ],
   "annotations": {
@@ -46,7 +46,7 @@
       {
         "datasource": "$datasource",
         "enable": true,
-        "expr": "changes(process_start_time_seconds{ instance=~\"$instance\"}[$__interval]) > 0",
+        "expr": "changes(process_start_time_seconds{ instance=~\"$instance\"}[2m]) > 0",
         "hide": false,
         "iconColor": "#bf1b00",
         "name": "Restarts",
@@ -62,7 +62,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1545995732101,
+  "iteration": 1555277967254,
   "links": [
     {
       "icon": "doc",
@@ -11098,7 +11098,7 @@
     }
   ],
   "refresh": "5m",
-  "schemaVersion": 16,
+  "schemaVersion": 18,
   "style": "dark",
   "tags": [
     "alertmanager",
@@ -11107,6 +11107,23 @@
   ],
   "templating": {
     "list": [
+      {
+        "current": {
+          "text": "default",
+          "value": "default"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Prometheus datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
       {
         "allValue": "",
         "current": {},
@@ -11128,22 +11145,6 @@
         "tagsQuery": "label_values(alertmanager_build_info, namespace)",
         "type": "query",
         "useTags": false
-      },
-      {
-        "current": {
-          "selected": true,
-          "text": "default",
-          "value": "default"
-        },
-        "hide": 2,
-        "label": "Prometheus datasource",
-        "name": "datasource",
-        "options": [],
-        "query": "prometheus",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "type": "datasource"
       }
     ]
   },
@@ -11177,7 +11178,7 @@
     ]
   },
   "timezone": "",
-  "title": "Alertmanager",
-  "uid": "eea-9_sik",
-  "version": 26
+  "title": "Alertmanager test",
+  "uid": "aaa",
+  "version": 2
 }
