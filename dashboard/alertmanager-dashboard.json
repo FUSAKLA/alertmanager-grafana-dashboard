@@ -5,31 +5,31 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.4.2"
+      "version": "6.1.0"
     },
     {
       "type": "panel",
       "id": "graph",
       "name": "Graph",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "datasource",
       "id": "prometheus",
       "name": "Prometheus",
-      "version": "5.0.0"
+      "version": "1.0.0"
     },
     {
       "type": "panel",
       "id": "singlestat",
       "name": "Singlestat",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "panel",
       "id": "table",
       "name": "Table",
-      "version": "5.0.0"
+      "version": ""
     }
   ],
   "annotations": {
@@ -51,7 +51,7 @@
         "iconColor": "#bf1b00",
         "name": "Restarts",
         "showIn": 0,
-        "step": "20s",
+        "step": "1m",
         "tagKeys": "instance",
         "titleFormat": "Restart"
       }
@@ -62,7 +62,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1545995732101,
+  "iteration": 1555334727804,
   "links": [
     {
       "icon": "doc",
@@ -133,6 +133,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "$datasource",
       "decimals": 0,
       "format": "short",
       "gauge": {
@@ -206,6 +207,7 @@
     },
     {
       "columns": [],
+      "datasource": "$datasource",
       "description": "Table containing list of Alertmanager instances showing it's version, up time, last reload time and if it was successful.",
       "fontSize": "90%",
       "gridPos": {
@@ -366,6 +368,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "$datasource",
       "decimals": 0,
       "description": "Number of peers in the Alertmanager cluster.",
       "format": "none",
@@ -447,6 +450,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "$datasource",
       "description": "Current number of active alerts.",
       "format": "none",
       "gauge": {
@@ -527,6 +531,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "$datasource",
       "description": "Current number of suppressed alerts.",
       "format": "none",
       "gauge": {
@@ -607,6 +612,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
+      "datasource": "$datasource",
       "description": "Current number of active silences.",
       "format": "none",
       "gauge": {
@@ -752,6 +758,7 @@
         {
           "expr": "sum(increase(alertmanager_notifications_failed_total{instance=~\"$instance\"}[$__interval])) by (integration)",
           "format": "time_series",
+          "hide": false,
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "Failed {{ integration }}",
@@ -804,6 +811,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "$datasource",
       "description": "Duration of notification sends in 0.99 and 0.9 quantiles per integration.",
       "fill": 0,
       "gridPos": {
@@ -927,6 +935,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "$datasource",
       "description": "Number of alerts by state such as `active`, `suppressed` etc.",
       "fill": 4,
       "gridPos": {
@@ -1023,6 +1032,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "$datasource",
       "description": "Number of received alerts from Prometheus by status `firing` on positive axis and `resolved` on negative axis.",
       "fill": 1,
       "gridPos": {
@@ -1131,13 +1141,14 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "description": "Shows cluster score representing cluster health. From Hashicorps official documentation: \n> This metric describes a node's perception of its own health based on how well it is meeting the soft real-time requirements of the protocol. This metric ranges from 0 to 8, where 0 indicates \"totally healthy\".\n\nFor more info see https://www.consul.io/docs/agent/telemetry.html#cluster-health",
           "fill": 1,
           "gridPos": {
             "h": 4,
             "w": 6,
             "x": 0,
-            "y": 30
+            "y": 20
           },
           "id": 57,
           "legend": {
@@ -1162,8 +1173,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -1237,9 +1248,9 @@
             "h": 4,
             "w": 6,
             "x": 6,
-            "y": 30
+            "y": 20
           },
-          "id": 327,
+          "id": 408,
           "legend": {
             "avg": false,
             "current": false,
@@ -1259,13 +1270,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 57,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -1339,9 +1350,9 @@
             "h": 4,
             "w": 6,
             "x": 12,
-            "y": 30
+            "y": 20
           },
-          "id": 328,
+          "id": 409,
           "legend": {
             "avg": false,
             "current": false,
@@ -1361,13 +1372,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 57,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -1441,9 +1452,9 @@
             "h": 4,
             "w": 6,
             "x": 18,
-            "y": 30
+            "y": 20
           },
-          "id": 329,
+          "id": 410,
           "legend": {
             "avg": false,
             "current": false,
@@ -1463,13 +1474,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 57,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -1537,13 +1548,14 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "description": "Shows gossip cluster members count in time and failing peers in case of any in red color.",
           "fill": 1,
           "gridPos": {
             "h": 4,
             "w": 6,
             "x": 0,
-            "y": 34
+            "y": 24
           },
           "id": 38,
           "legend": {
@@ -1568,8 +1580,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -1650,9 +1662,9 @@
             "h": 4,
             "w": 6,
             "x": 6,
-            "y": 34
+            "y": 24
           },
-          "id": 330,
+          "id": 411,
           "legend": {
             "avg": false,
             "current": false,
@@ -1672,13 +1684,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 38,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -1759,9 +1771,9 @@
             "h": 4,
             "w": 6,
             "x": 12,
-            "y": 34
+            "y": 24
           },
-          "id": 331,
+          "id": 412,
           "legend": {
             "avg": false,
             "current": false,
@@ -1781,13 +1793,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 38,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -1868,9 +1880,9 @@
             "h": 4,
             "w": 6,
             "x": 18,
-            "y": 34
+            "y": 24
           },
-          "id": 332,
+          "id": 413,
           "legend": {
             "avg": false,
             "current": false,
@@ -1890,13 +1902,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 38,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -1971,13 +1983,14 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "description": "On positive axis shows number of peers that joined the cluster and on negative axis number of peers that left the cluster.",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 38
+            "y": 28
           },
           "id": 75,
           "legend": {
@@ -2002,8 +2015,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -2084,9 +2097,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 38
+            "y": 28
           },
-          "id": 333,
+          "id": 414,
           "legend": {
             "avg": false,
             "current": false,
@@ -2106,13 +2119,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 75,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -2193,9 +2206,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 38
+            "y": 28
           },
-          "id": 334,
+          "id": 415,
           "legend": {
             "avg": false,
             "current": false,
@@ -2215,13 +2228,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 75,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -2302,9 +2315,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 38
+            "y": 28
           },
-          "id": 335,
+          "id": 416,
           "legend": {
             "avg": false,
             "current": false,
@@ -2324,13 +2337,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 75,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -2405,13 +2418,14 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "description": "On positive axis is number of attempts to reconnect the cluster. On negative axis if number of failed attempts.",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 44
+            "y": 34
           },
           "id": 68,
           "legend": {
@@ -2436,8 +2450,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -2518,9 +2532,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 44
+            "y": 34
           },
-          "id": 336,
+          "id": 417,
           "legend": {
             "avg": false,
             "current": false,
@@ -2540,13 +2554,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 68,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -2627,9 +2641,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 44
+            "y": 34
           },
-          "id": 337,
+          "id": 418,
           "legend": {
             "avg": false,
             "current": false,
@@ -2649,13 +2663,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 68,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -2736,9 +2750,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 44
+            "y": 34
           },
-          "id": 338,
+          "id": 419,
           "legend": {
             "avg": false,
             "current": false,
@@ -2758,13 +2772,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 68,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -2839,13 +2853,14 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "description": "On positive axis is number of sent cluster messages by type `update`  or `full_state` and on negative axis the same for received messages.",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 50
+            "y": 40
           },
           "id": 48,
           "legend": {
@@ -2870,8 +2885,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -2959,9 +2974,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 50
+            "y": 40
           },
-          "id": 339,
+          "id": 420,
           "legend": {
             "avg": false,
             "current": false,
@@ -2981,13 +2996,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 48,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -3075,9 +3090,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 50
+            "y": 40
           },
-          "id": 340,
+          "id": 421,
           "legend": {
             "avg": false,
             "current": false,
@@ -3097,13 +3112,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 48,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -3191,9 +3206,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 50
+            "y": 40
           },
-          "id": 341,
+          "id": 422,
           "legend": {
             "avg": false,
             "current": false,
@@ -3213,13 +3228,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 48,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -3301,13 +3316,14 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "description": "On positive axis is size of sent cluster messages by type `update`  or `full_state` and on negative axis the same for received messages.",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 56
+            "y": 46
           },
           "id": 53,
           "legend": {
@@ -3332,8 +3348,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -3421,9 +3437,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 56
+            "y": 46
           },
-          "id": 342,
+          "id": 423,
           "legend": {
             "avg": false,
             "current": false,
@@ -3443,13 +3459,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 53,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -3537,9 +3553,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 56
+            "y": 46
           },
-          "id": 343,
+          "id": 424,
           "legend": {
             "avg": false,
             "current": false,
@@ -3559,13 +3575,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 53,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -3653,9 +3669,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 56
+            "y": 46
           },
-          "id": 344,
+          "id": 425,
           "legend": {
             "avg": false,
             "current": false,
@@ -3675,13 +3691,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 53,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -3763,13 +3779,14 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "description": "On positive axis is number of queued cluster messages and on negative axis number of pruned messages.",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 62
+            "y": 52
           },
           "id": 62,
           "legend": {
@@ -3794,8 +3811,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -3875,9 +3892,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 62
+            "y": 52
           },
-          "id": 345,
+          "id": 426,
           "legend": {
             "avg": false,
             "current": false,
@@ -3897,13 +3914,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 62,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -3983,9 +4000,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 62
+            "y": 52
           },
-          "id": 346,
+          "id": 427,
           "legend": {
             "avg": false,
             "current": false,
@@ -4005,13 +4022,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 62,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -4091,9 +4108,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 62
+            "y": 52
           },
-          "id": 347,
+          "id": 428,
           "legend": {
             "avg": false,
             "current": false,
@@ -4113,13 +4130,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 62,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -4207,12 +4224,13 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 69
+            "y": 10
           },
           "id": 314,
           "legend": {
@@ -4237,8 +4255,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -4331,9 +4349,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 69
+            "y": 10
           },
-          "id": 348,
+          "id": 441,
           "legend": {
             "avg": false,
             "current": false,
@@ -4353,13 +4371,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 314,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -4452,9 +4470,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 69
+            "y": 10
           },
-          "id": 349,
+          "id": 442,
           "legend": {
             "avg": false,
             "current": false,
@@ -4474,13 +4492,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 314,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -4573,9 +4591,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 69
+            "y": 10
           },
-          "id": 350,
+          "id": 443,
           "legend": {
             "avg": false,
             "current": false,
@@ -4595,13 +4613,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 314,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -4689,12 +4707,13 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 75
+            "y": 16
           },
           "id": 307,
           "legend": {
@@ -4719,8 +4738,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -4794,9 +4813,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 75
+            "y": 16
           },
-          "id": 351,
+          "id": 444,
           "legend": {
             "avg": false,
             "current": false,
@@ -4816,13 +4835,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 307,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -4896,9 +4915,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 75
+            "y": 16
           },
-          "id": 352,
+          "id": 445,
           "legend": {
             "avg": false,
             "current": false,
@@ -4918,13 +4937,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 307,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -4998,9 +5017,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 75
+            "y": 16
           },
-          "id": 353,
+          "id": 446,
           "legend": {
             "avg": false,
             "current": false,
@@ -5020,13 +5039,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 307,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -5095,12 +5114,13 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 81
+            "y": 22
           },
           "id": 303,
           "legend": {
@@ -5125,8 +5145,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -5207,9 +5227,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 81
+            "y": 22
           },
-          "id": 354,
+          "id": 447,
           "legend": {
             "avg": false,
             "current": false,
@@ -5229,13 +5249,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 303,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -5316,9 +5336,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 81
+            "y": 22
           },
-          "id": 355,
+          "id": 448,
           "legend": {
             "avg": false,
             "current": false,
@@ -5338,13 +5358,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 303,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -5425,9 +5445,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 81
+            "y": 22
           },
-          "id": 356,
+          "id": 449,
           "legend": {
             "avg": false,
             "current": false,
@@ -5447,13 +5467,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 303,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -5543,12 +5563,13 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 88
+            "y": 11
           },
           "id": 94,
           "legend": {
@@ -5573,8 +5594,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -5654,9 +5675,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 88
+            "y": 11
           },
-          "id": 357,
+          "id": 450,
           "legend": {
             "avg": false,
             "current": false,
@@ -5676,13 +5697,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 94,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -5762,9 +5783,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 88
+            "y": 11
           },
-          "id": 358,
+          "id": 451,
           "legend": {
             "avg": false,
             "current": false,
@@ -5784,13 +5805,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 94,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -5870,9 +5891,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 88
+            "y": 11
           },
-          "id": 359,
+          "id": 452,
           "legend": {
             "avg": false,
             "current": false,
@@ -5892,13 +5913,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 94,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -5973,12 +5994,13 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 94
+            "y": 17
           },
           "id": 106,
           "legend": {
@@ -6003,8 +6025,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -6077,9 +6099,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 94
+            "y": 17
           },
-          "id": 360,
+          "id": 453,
           "legend": {
             "avg": false,
             "current": false,
@@ -6099,13 +6121,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 106,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -6178,9 +6200,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 94
+            "y": 17
           },
-          "id": 361,
+          "id": 454,
           "legend": {
             "avg": false,
             "current": false,
@@ -6200,13 +6222,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 106,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -6279,9 +6301,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 94
+            "y": 17
           },
-          "id": 362,
+          "id": 455,
           "legend": {
             "avg": false,
             "current": false,
@@ -6301,13 +6323,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 106,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -6375,12 +6397,13 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 100
+            "y": 23
           },
           "id": 97,
           "legend": {
@@ -6405,8 +6428,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -6479,9 +6502,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 100
+            "y": 23
           },
-          "id": 363,
+          "id": 456,
           "legend": {
             "avg": false,
             "current": false,
@@ -6501,13 +6524,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 97,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -6580,9 +6603,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 100
+            "y": 23
           },
-          "id": 364,
+          "id": 457,
           "legend": {
             "avg": false,
             "current": false,
@@ -6602,13 +6625,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 97,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -6681,9 +6704,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 100
+            "y": 23
           },
-          "id": 365,
+          "id": 458,
           "legend": {
             "avg": false,
             "current": false,
@@ -6703,13 +6726,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 97,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -6777,12 +6800,13 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 106
+            "y": 29
           },
           "id": 101,
           "legend": {
@@ -6807,8 +6831,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -6882,9 +6906,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 106
+            "y": 29
           },
-          "id": 366,
+          "id": 459,
           "legend": {
             "avg": false,
             "current": false,
@@ -6904,13 +6928,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 101,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -6984,9 +7008,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 106
+            "y": 29
           },
-          "id": 367,
+          "id": 460,
           "legend": {
             "avg": false,
             "current": false,
@@ -7006,13 +7030,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 101,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -7086,9 +7110,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 106
+            "y": 29
           },
-          "id": 368,
+          "id": 461,
           "legend": {
             "avg": false,
             "current": false,
@@ -7108,13 +7132,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 101,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -7183,12 +7207,13 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 112
+            "y": 35
           },
           "id": 92,
           "legend": {
@@ -7213,8 +7238,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -7287,9 +7312,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 112
+            "y": 35
           },
-          "id": 369,
+          "id": 462,
           "legend": {
             "avg": false,
             "current": false,
@@ -7309,13 +7334,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 92,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -7388,9 +7413,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 112
+            "y": 35
           },
-          "id": 370,
+          "id": 463,
           "legend": {
             "avg": false,
             "current": false,
@@ -7410,13 +7435,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 92,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -7489,9 +7514,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 112
+            "y": 35
           },
-          "id": 371,
+          "id": 464,
           "legend": {
             "avg": false,
             "current": false,
@@ -7511,13 +7536,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 92,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -7599,12 +7624,13 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 119
+            "y": 12
           },
           "id": 129,
           "legend": {
@@ -7629,8 +7655,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -7704,9 +7730,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 119
+            "y": 12
           },
-          "id": 372,
+          "id": 465,
           "legend": {
             "avg": false,
             "current": false,
@@ -7726,13 +7752,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 129,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -7806,9 +7832,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 119
+            "y": 12
           },
-          "id": 373,
+          "id": 466,
           "legend": {
             "avg": false,
             "current": false,
@@ -7828,13 +7854,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 129,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -7908,9 +7934,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 119
+            "y": 12
           },
-          "id": 374,
+          "id": 467,
           "legend": {
             "avg": false,
             "current": false,
@@ -7930,13 +7956,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 129,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -8005,12 +8031,13 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 125
+            "y": 18
           },
           "id": 134,
           "legend": {
@@ -8035,8 +8062,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -8117,9 +8144,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 125
+            "y": 18
           },
-          "id": 375,
+          "id": 468,
           "legend": {
             "avg": false,
             "current": false,
@@ -8139,13 +8166,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 134,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -8226,9 +8253,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 125
+            "y": 18
           },
-          "id": 376,
+          "id": 469,
           "legend": {
             "avg": false,
             "current": false,
@@ -8248,13 +8275,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 134,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -8335,9 +8362,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 125
+            "y": 18
           },
-          "id": 377,
+          "id": 470,
           "legend": {
             "avg": false,
             "current": false,
@@ -8357,13 +8384,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 134,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -8439,12 +8466,13 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 131
+            "y": 24
           },
           "id": 138,
           "legend": {
@@ -8469,8 +8497,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -8544,9 +8572,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 131
+            "y": 24
           },
-          "id": 378,
+          "id": 471,
           "legend": {
             "avg": false,
             "current": false,
@@ -8566,13 +8594,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 138,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -8646,9 +8674,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 131
+            "y": 24
           },
-          "id": 379,
+          "id": 472,
           "legend": {
             "avg": false,
             "current": false,
@@ -8668,13 +8696,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 138,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -8748,9 +8776,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 131
+            "y": 24
           },
-          "id": 380,
+          "id": 473,
           "legend": {
             "avg": false,
             "current": false,
@@ -8770,13 +8798,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 138,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -8845,12 +8873,13 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 137
+            "y": 30
           },
           "id": 149,
           "legend": {
@@ -8875,8 +8904,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -8950,9 +8979,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 137
+            "y": 30
           },
-          "id": 381,
+          "id": 474,
           "legend": {
             "avg": false,
             "current": false,
@@ -8972,13 +9001,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 149,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -9052,9 +9081,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 137
+            "y": 30
           },
-          "id": 382,
+          "id": 475,
           "legend": {
             "avg": false,
             "current": false,
@@ -9074,13 +9103,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 149,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -9154,9 +9183,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 137
+            "y": 30
           },
-          "id": 383,
+          "id": 476,
           "legend": {
             "avg": false,
             "current": false,
@@ -9176,13 +9205,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 149,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -9251,12 +9280,13 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 143
+            "y": 36
           },
           "id": 143,
           "legend": {
@@ -9281,8 +9311,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -9356,9 +9386,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 143
+            "y": 36
           },
-          "id": 384,
+          "id": 477,
           "legend": {
             "avg": false,
             "current": false,
@@ -9378,13 +9408,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 143,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -9458,9 +9488,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 143
+            "y": 36
           },
-          "id": 385,
+          "id": 478,
           "legend": {
             "avg": false,
             "current": false,
@@ -9480,13 +9510,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 143,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -9560,9 +9590,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 143
+            "y": 36
           },
-          "id": 386,
+          "id": 479,
           "legend": {
             "avg": false,
             "current": false,
@@ -9582,13 +9612,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 143,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -9657,12 +9687,13 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 149
+            "y": 42
           },
           "id": 131,
           "legend": {
@@ -9687,8 +9718,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -9762,9 +9793,9 @@
             "h": 6,
             "w": 6,
             "x": 6,
-            "y": 149
+            "y": 42
           },
-          "id": 387,
+          "id": 480,
           "legend": {
             "avg": false,
             "current": false,
@@ -9784,13 +9815,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 131,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -9864,9 +9895,9 @@
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 149
+            "y": 42
           },
-          "id": 388,
+          "id": 481,
           "legend": {
             "avg": false,
             "current": false,
@@ -9886,13 +9917,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 131,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -9966,9 +9997,9 @@
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 149
+            "y": 42
           },
-          "id": 389,
+          "id": 482,
           "legend": {
             "avg": false,
             "current": false,
@@ -9988,13 +10019,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 131,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -10084,7 +10115,7 @@
             "h": 7,
             "w": 6,
             "x": 0,
-            "y": 156
+            "y": 13
           },
           "id": 175,
           "legend": {
@@ -10109,8 +10140,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -10226,9 +10257,9 @@
             "h": 7,
             "w": 6,
             "x": 6,
-            "y": 156
+            "y": 13
           },
-          "id": 390,
+          "id": 483,
           "legend": {
             "avg": false,
             "current": false,
@@ -10248,13 +10279,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 175,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -10370,9 +10401,9 @@
             "h": 7,
             "w": 6,
             "x": 12,
-            "y": 156
+            "y": 13
           },
-          "id": 391,
+          "id": 484,
           "legend": {
             "avg": false,
             "current": false,
@@ -10392,13 +10423,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 175,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -10514,9 +10545,9 @@
             "h": 7,
             "w": 6,
             "x": 18,
-            "y": 156
+            "y": 13
           },
-          "id": 392,
+          "id": 485,
           "legend": {
             "avg": false,
             "current": false,
@@ -10536,13 +10567,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 175,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -10657,7 +10688,7 @@
             "h": 7,
             "w": 6,
             "x": 0,
-            "y": 163
+            "y": 20
           },
           "id": 177,
           "legend": {
@@ -10682,8 +10713,8 @@
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-6c88d489db-4vjq8",
-              "value": "alertmanager-6c88d489db-4vjq8"
+              "text": "alertmanager-54b9fdf9bf-gqxs4",
+              "value": "alertmanager-54b9fdf9bf-gqxs4"
             }
           },
           "seriesOverrides": [
@@ -10767,9 +10798,9 @@
             "h": 7,
             "w": 6,
             "x": 6,
-            "y": 163
+            "y": 20
           },
-          "id": 393,
+          "id": 486,
           "legend": {
             "avg": false,
             "current": false,
@@ -10789,13 +10820,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 177,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-dd4c7c49b-ltr2s",
-              "value": "alertmanager-dd4c7c49b-ltr2s"
+              "text": "alertmanager-7f5c977766-kwr2s",
+              "value": "alertmanager-7f5c977766-kwr2s"
             }
           },
           "seriesOverrides": [
@@ -10879,9 +10910,9 @@
             "h": 7,
             "w": 6,
             "x": 12,
-            "y": 163
+            "y": 20
           },
-          "id": 394,
+          "id": 487,
           "legend": {
             "avg": false,
             "current": false,
@@ -10901,13 +10932,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 177,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-59b8d9577-z77ll",
-              "value": "alertmanager-sre-59b8d9577-z77ll"
+              "text": "alertmanager-sre-5b9858bf54-r8skx",
+              "value": "alertmanager-sre-5b9858bf54-r8skx"
             }
           },
           "seriesOverrides": [
@@ -10991,9 +11022,9 @@
             "h": 7,
             "w": 6,
             "x": 18,
-            "y": 163
+            "y": 20
           },
-          "id": 395,
+          "id": 488,
           "legend": {
             "avg": false,
             "current": false,
@@ -11013,13 +11044,13 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1545995732100,
+          "repeatIteration": 1555332813958,
           "repeatPanelId": 177,
           "scopedVars": {
             "instance": {
               "selected": false,
-              "text": "alertmanager-sre-6c7db657-qk9gj",
-              "value": "alertmanager-sre-6c7db657-qk9gj"
+              "text": "alertmanager-sre-8455c65f47-mmwlq",
+              "value": "alertmanager-sre-8455c65f47-mmwlq"
             }
           },
           "seriesOverrides": [
@@ -11098,7 +11129,7 @@
     }
   ],
   "refresh": "5m",
-  "schemaVersion": 16,
+  "schemaVersion": 18,
   "style": "dark",
   "tags": [
     "alertmanager",
@@ -11107,6 +11138,24 @@
   ],
   "templating": {
     "list": [
+      {
+        "current": {
+          "tags": [],
+          "text": "default",
+          "value": "default"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Prometheus datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
       {
         "allValue": "",
         "current": {},
@@ -11128,22 +11177,6 @@
         "tagsQuery": "label_values(alertmanager_build_info, namespace)",
         "type": "query",
         "useTags": false
-      },
-      {
-        "current": {
-          "selected": true,
-          "text": "default",
-          "value": "default"
-        },
-        "hide": 2,
-        "label": "Prometheus datasource",
-        "name": "datasource",
-        "options": [],
-        "query": "prometheus",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "type": "datasource"
       }
     ]
   },
@@ -11179,5 +11212,5 @@
   "timezone": "",
   "title": "Alertmanager",
   "uid": "eea-9_sik",
-  "version": 26
+  "version": 27
 }
