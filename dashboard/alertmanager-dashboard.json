@@ -334,7 +334,7 @@
       ],
       "targets": [
         {
-          "expr": "time() - (alertmanager_build_info{instance=~\"$instance\"} * on (instance, cluster) group_left process_start_time_seconds{instance=~\"$instance\"})",
+          "expr": "time() - (alertmanager_build_info{instance=~\"$instance\"} * on (instance, cluster, job) group_left process_start_time_seconds{instance=~\"$instance\"})",
           "format": "table",
           "instant": true,
           "intervalFactor": 1,
