@@ -8,13 +8,13 @@ It should give you good idea about state of your Alertmanager cluster, it's util
 Dashboard works only with `instance` label and repeats all graphs for every instance found 
 in the metric `alertmanager_build_info`. 
 
-Every graph should have description tooltip on the upper left cornet if you hover over it.
+Every graph should have description tooltip on the upper left corner if you hover over it.
 
 
 ## Requirements
 
 ### Datasource
-- Prometheus datasource - datasource poiting to the prometheus 
+- Prometheus datasource - datasource pointing to the prometheus 
 instance which scrapes metrics of desired Alertmanager instances.
 
 ## Installation
